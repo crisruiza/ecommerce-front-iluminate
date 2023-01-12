@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../services/Users.service";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProductsGrid from "../components/ProductsGrid";
 
 const Profile = () => {
-  const { id } = useParams();
   const [user, setUser] = useState([]);
   useEffect(() => {
     document.title = "Mi perfil";
-    getUser(id).then((res) => {
+    getUser().then((res) => {
       setUser(res.data);
       console.log(res.data);
     });
